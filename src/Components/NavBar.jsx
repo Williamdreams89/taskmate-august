@@ -3,11 +3,15 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import styled from "styled-components";
 import { useGetTodosQuery } from "../Api/ApiSlice";
 
-function NavigationBar() {
 
-    const {data} = useGetTodosQuery()
+const Styled = styled.div``;
+
+function NavigationBar() {
+  const { data } = useGetTodosQuery();
+
   return (
     <Navbar
       bg="dark"
@@ -15,7 +19,7 @@ function NavigationBar() {
       expand="lg"
       style={{ marginBottom: "2rem" }}
     >
-      <Container fluid>
+      <Container >
         <Navbar.Brand href="#">Taskmate</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
@@ -25,7 +29,25 @@ function NavigationBar() {
             navbarScroll
           >
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">Todolist</Nav.Link>
+            <Nav.Link href="#action2" style={{ position: "relative" , marginRight: "1rem" }}>
+              Todolist{" "}
+              <span
+                style={{
+                  position: "absolute",
+                  fontSize: "12px",
+                  width: "20px",
+                  height: "20px",
+                  borderRadius: "50%",
+                  backgroundColor: "yellow",
+                  top: "-2px",
+                  
+                }}
+
+                className = "bg-warning text-light text-center span__length"
+              >
+                {data?.length}
+              </span>
+            </Nav.Link>
             <Nav.Link href="#action2">Contact Us</Nav.Link>
           </Nav>
           <Form className="d-flex">
