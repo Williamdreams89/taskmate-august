@@ -35,6 +35,17 @@ const TodoContainer = styled.main`
     }
   }
 
+  table{
+    tr{
+      text-align: center;
+    }
+
+    .todoMain{
+      text-align: justify;
+      padding-left: 1rem;
+    }
+  }
+
   @media screen and (min-width: 900px){
     width: 70%
   }
@@ -98,11 +109,11 @@ function Todolist() {
                       onChange = {()=>updateTodo({...todoItem, done: !todoItem.done})}
                     />
                   </td>
-                  <td>
+                  <td className="todoMain">
                     <label htmlFor={todoItem.id}>{todoItem.title}</label>
                   </td>
                   <td>
-                    <FaTrashAlt onClick={() => deleteTodo({id: todoItem.id})} />
+                    <FaTrashAlt style={{color: "orangered", cursor: "pointer"}} onClick={() => deleteTodo({id: todoItem.id})} />
                   </td>
                 </tr>
               ))}
