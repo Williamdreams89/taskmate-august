@@ -8,7 +8,7 @@ import Preloader from './Components/Preloader';
 function App() {
   const [loading, setLoading] = useState(false);
   useEffect(()=>{
-    setLoading(false)
+    setLoading(true)
     setTimeout(()=>{
       setLoading(false)
     }, 5000)
